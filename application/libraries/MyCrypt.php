@@ -27,5 +27,19 @@ class MyCrypt {
 	public function dec_file($encypt_file,$decrypted_file){		
 		return $this->mylib->decryptFile($encypt_file, $this->pubkey, $decrypted_file);
 	}
-		                     
+	
+	public function remove_save($path_file,$ori_file_name){				
+		header('Content-type: '.mime_content_type($ori_file_name));
+		header('Content-Disposition: attachment; filename="' . $ori_file_name . '"');
+		header('Content-Transfer-Encoding: binary');
+		header('Accept-Ranges: bytes');				
+		ob_clean();
+		flush();
+		if (readfile(FCPATH.$path_file))
+		{
+		  unlink(FCPATH.$path_file);
+		}
+			
+	}
+	                
 }

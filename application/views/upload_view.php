@@ -3,7 +3,7 @@
 <title>Upload Form</title>
 </head>
 <body>
-<?php echo heading("Encrypt Files using AESCrypt",3); ?>
+<?php echo heading("Download and Decrypt Files using AESCrypt",3); ?>
 
 <?php if(isset($error))echo $error;?>
 
@@ -16,7 +16,8 @@
     <?php 
         if(isset($upload_data))
         {
-            echo base_url().'do_upload/'.$upload_data;          
+			$url_aes = str_replace("=","",base64_encode('./uploads/'.$upload_data));					
+            echo anchor(base_url().'lockfile/download/'.$url_aes.'/'.$upload_data,$upload_data);          
         }
     ?>
 </div>

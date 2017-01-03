@@ -39,5 +39,16 @@ class Lockfile extends CI_Controller {
 			}	
         }	
 	}
+	
+	public function download($url_aes,$file_name){
+		$url_ori = str_replace('.aes','',base64_decode($url_aes."=="));
+		$ori_file_name = str_replace('.aes','',$file_name);
+		if(strpos($file_name, '.aes')){
+			$this->mycrypt->dec_file($url_ori.'.aes',$url_ori);
+		}
+		$this->mycrypt->remove_save($url_ori,$ori_file_name);
+	}
+	
+	
 		
 }
