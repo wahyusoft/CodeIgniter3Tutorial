@@ -21,27 +21,11 @@ class MyCrypt {
 	}
 	
 	public function enc_file($file_to_encrypt,$path){			
-		return $this->mylib->encryptFile($file_to_encrypt['tmp_name'], $this->pubkey,$path.'.aes');
+		return $this->mylib->encryptFile($file_to_encrypt, $this->pubkey,$path.'.aes');
 	}
 	
 	public function dec_file($encypt_file,$decrypted_file){		
 		return $this->mylib->decryptFile($encypt_file, $this->pubkey, $decrypted_file);
 	}
-	
-	public function remove_save($path_file,$ori_file_name){				
-		header('Content-type: '.mime_content_type($ori_file_name));
-		header('Content-Disposition: attachment; filename="' . $ori_file_name . '"');
-		header('Content-Transfer-Encoding: binary');
-		header('Accept-Ranges: bytes');				
-		ob_clean();
-		flush();
-		if (readfile(FCPATH.$path_file))
-		{
-		  unlink(FCPATH.$path_file);
-		}
-			
-	}
-    
-    
-               
+		                     
 }
