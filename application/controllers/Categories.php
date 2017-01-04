@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Categories extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,6 +21,6 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		//$this->load->view('admintemplate');
-		$this->mytemplate->loadAmin('home');
+		$this->mytemplate->loadAmin('categories');
 	}
 }
