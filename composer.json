@@ -1,7 +1,5 @@
 {	
     "require": {
-	"dompdf/dompdf" : "0.6.*",
-        "omnipay/paypal": "~2.0",
-        "league/flysystem-aws-s3-v2": "~1.0"
+		"stripe/stripe-php": "4.*"
     }
 }

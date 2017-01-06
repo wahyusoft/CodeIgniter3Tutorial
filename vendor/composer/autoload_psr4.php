@@ -6,9 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Symfony\\Component\\HttpFoundation\\' => array($vendorDir . '/symfony/http-foundation'),
-    'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
-    'Omnipay\\PayPal\\' => array($vendorDir . '/omnipay/paypal/src'),
-    'League\\Flysystem\\AwsS3v2\\' => array($vendorDir . '/league/flysystem-aws-s3-v2/src'),
-    'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
+    'Stripe\\' => array($vendorDir . '/stripe/stripe-php/lib'),
 );
