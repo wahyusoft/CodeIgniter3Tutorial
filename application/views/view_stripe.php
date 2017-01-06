@@ -12,7 +12,8 @@
                             </li>
                         </ol>
                     </div>
-                </div>				
+                </div>			
+				<?php echo $message;?>	
                 <!-- /.row -->
 				<div class="row">
 					<div class="col-lg-12">
