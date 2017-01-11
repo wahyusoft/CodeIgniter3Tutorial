@@ -159,7 +159,8 @@
 						<?php echo anchor(base_url().'stripeintegration','<i class="fa fa-fw fa-bar-chart-o"></i> Stripe Integration');?>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+						<?php echo anchor(base_url().'amazons3','<i class="fa fa-fw fa-fw fa-table"></i> Amazon Web Service');?>
+                        
                     </li>
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
