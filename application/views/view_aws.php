@@ -28,7 +28,7 @@
 								if(isset($upload_data))
 								{
 									?>
-									<img src="<?php echo base_url(); ?>uploads/<?php echo $upload_data?>" />
+									File url : <?php echo $upload_data;?>
 									<?php
 
 								}

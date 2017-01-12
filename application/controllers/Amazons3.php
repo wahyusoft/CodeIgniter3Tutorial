@@ -32,7 +32,8 @@ class Amazons3 extends CI_Controller {
 		}
 		else
 		{
-			$image_data = $this->upload->data();			
+			$image_data = $this->upload->data();
+			$image_data['file_name'] = $this->aws3->sendFile('roomrangers',$_FILES['userfile']);	
 			$data = array('upload_data' => $image_data['file_name']);
 			$this->mytemplate->loadAmin('view_aws', $data);
 		}

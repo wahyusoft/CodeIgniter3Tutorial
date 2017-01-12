@@ -28,5 +28,18 @@
 			'LocationConstraint'=> 'us-west-1'));
 		return $result;	
 	}
+	
+	public function sendFile($bucketName, $filename){
+		$result = $this->S3->putObject(array(
+				'Bucket' => $bucketName,
+				'Key' => $filename['name'],
+				'SourceFile' => $filename['tmp_name'],
+				'ContentType' => 'image/png',
+				'StorageClass' => 'STANDARD',
+				'ACL' => 'public-read'
+		));
+		return $result['ObjectURL']."\n";
+	}
+		
 	 
  }
