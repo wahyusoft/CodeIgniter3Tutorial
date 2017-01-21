@@ -84,6 +84,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
-
+<?php 
+	if(isset($css_files)):
+	foreach($css_files as $file): ?>
+		<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+	<?php endforeach; ?>
+	<?php foreach($js_files as $file): ?>
+		<script src="<?php echo $file; ?>"></script>
+	<?php endforeach; 
+	endif;
+	?>
 </body>
 </html>

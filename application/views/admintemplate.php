@@ -163,7 +163,7 @@
                         
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                        <a href="<?php echo base_url().'shippers';?>"><i class="fa fa-fw fa-edit"></i> Shippers</a>
                     </li>
                     <li>
                         <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
@@ -212,8 +212,17 @@
     <!-- Morris Charts JavaScript -->
     <script src="<?php echo base_url().'/assets/js/plugins/morris/raphael.min.js';?>"></script>
     <script src="<?php echo base_url().'/assets/js/plugins/morris/morris.min.js';?>"></script>
-    <script src="<?php echo base_url().'/assets/js/plugins/morris/morris-data.js';?>"></script>
-
+    <script src="<?php echo base_url().'/assets/js/plugins/morris/morris-data.js';?>"></script> 
+    <?php    
+if(isset($css_files)):    
+        foreach($css_files as $file): ?>
+            <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+        <?php endforeach; ?>
+        <?php foreach($js_files as $file): ?>
+            <script src="<?php echo $file; ?>"></script>
+    <?php endforeach;
+endif;
+?>   
 </body>
 
 </html>
