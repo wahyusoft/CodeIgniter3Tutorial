@@ -158,6 +158,9 @@
                     <li>                        
 						<?php echo anchor(base_url().'stripeintegration','<i class="fa fa-fw fa-bar-chart-o"></i> Stripe Integration');?>
                     </li>
+                    <li>                        
+                        <?php echo anchor(base_url().'paypalintegration','<i class="fa fa-fw fa-bar-chart-o"></i> Paypal Integration');?>
+                    </li>
                     <li>
 						<?php echo anchor(base_url().'amazons3','<i class="fa fa-fw fa-fw fa-table"></i> Amazon Web Service');?>
                         

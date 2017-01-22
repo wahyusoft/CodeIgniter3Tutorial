@@ -1,6 +1,7 @@
 {	
     "require": {
 		"stripe/stripe-php": "4.*",
-		"aws/aws-sdk-php": "2.*"
+		"aws/aws-sdk-php": "2.*",
+		"omnipay/omnipay": "~2.0"
     }
 }
