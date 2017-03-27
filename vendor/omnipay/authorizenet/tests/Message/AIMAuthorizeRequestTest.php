@@ -12,12 +12,14 @@ class AIMAuthorizeRequestTest extends TestCase
     public function setUp()
     {
         $this->request = new AIMAuthorizeRequest($this->getHttpClient(), $this->getHttpRequest());
+        $card = $this->getValidCard();
+        $card['email'] = 'example@example.net';
         $this->request->initialize(
             array(
                 'clientIp' => '10.0.0.1',
                 'amount' => '12.00',
                 'customerId' => 'cust-id',
-                'card' => $this->getValidCard(),
+                'card' => $card,
                 'duplicateWindow' => 0
             )
         );
@@ -30,6 +32,7 @@ class AIMAuthorizeRequestTest extends TestCase
         $this->assertEquals('authOnlyTransaction', $data->transactionRequest->transactionType);
         $this->assertEquals('10.0.0.1', $data->transactionRequest->customerIP);
         $this->assertEquals('cust-id', $data->transactionRequest->customer->id);
+        $this->assertEquals('example@example.net', $data->transactionRequest->customer->email);
 
         // Issue #38 Make sure the transactionRequest properties are correctly ordered.
         // This feels messy, but works.
@@ -40,6 +43,7 @@ class AIMAuthorizeRequestTest extends TestCase
             "transactionType",
             "amount",
             "payment",
+            "order",
             "customer",
             "billTo",
             "shipTo",
@@ -62,6 +66,17 @@ class AIMAuthorizeRequestTest extends TestCase
         $setting = $data->transactionRequest->transactionSettings->setting[0];
         $this->assertEquals('testRequest', $setting->settingName);
         $this->assertEquals('true', $setting->settingValue);
+    }
+
+    public function testGetDataOpaqueData()
+    {
+        $this->request->setOpaqueDataDescriptor('COMMON.ACCEPT.INAPP.PAYMENT');
+        $this->request->setOpaqueDataValue('jb2RlIjoiNTB');
+
+        $data = $this->request->getData();
+
+        $this->assertEquals('COMMON.ACCEPT.INAPP.PAYMENT', $data->transactionRequest->payment->opaqueData->dataDescriptor);
+        $this->assertEquals('jb2RlIjoiNTB', $data->transactionRequest->payment->opaqueData->dataValue);
     }
 
     public function testShouldIncludeDuplicateWindowSetting()

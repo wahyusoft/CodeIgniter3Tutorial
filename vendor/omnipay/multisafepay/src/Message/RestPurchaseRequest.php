@@ -420,13 +420,13 @@ class RestPurchaseRequest extends RestAbstractRequest
         }
 
         $cardData = array(
-            'address_1'         => $this->getCard()->getAddress1(),
-            'address_2'         => $this->getCard()->getAddress2(),
+            'address1'         => $this->getCard()->getAddress1(),
+            'address2'         => $this->getCard()->getAddress2(),
             'city'              => $this->getCard()->getCity(),
             'country'           => $this->getCard()->getCountry(),
             'email'             => $this->getCard()->getEmail(),
             'first_name'        => $this->getCard()->getFirstName(),
-            'house_number'      => $this->getCard()->getNumber(),
+            'house_number'      => $this->getVar1(),
             'last_name'         => $this->getCard()->getLastName(),
             'phone'             => $this->getCard()->getPhone(),
             'state'             => $this->getCard()->getState(),
